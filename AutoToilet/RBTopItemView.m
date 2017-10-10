@@ -30,6 +30,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame andTitle:(NSString *)title {
     if (self = [super initWithFrame:frame]) {
+        self.backgroundColor = rgb(246, 249, 250);
         self.title = title;
         
         self.isHaveRightLine = YES;
@@ -44,6 +45,33 @@
     _isHaveRightLine = isHaveRightLine;
     
     self.rightLineView.hidden = !isHaveRightLine;
+}
+
+- (void)setIsRank:(BOOL)isRank {
+    _isRank = isRank;
+}
+
+- (void)setTemperature:(CGFloat)temperature {
+    _temperature = temperature;
+    
+    
+    if (self.isRank) {
+        if (temperature > 0 && temperature < 30) {
+            self.rankLabel.text = [NSString stringWithFormat:@"1级"];
+        }
+        else if (temperature > 30 && temperature < 50)
+        {
+            self.rankLabel.text = [NSString stringWithFormat:@"2级"];
+        }
+        else
+        {
+            self.rankLabel.text = [NSString stringWithFormat:@"3 级"];
+        }
+    }
+    else
+    {
+        self.rankLabel.text = [NSString stringWithFormat:@"%.0f°C", temperature];
+    }
 }
 
 - (void)createUI {

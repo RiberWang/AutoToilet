@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "RBRootViewController.h"
+#import "PrefixHeader.h"
 
 @interface AppDelegate ()
 
@@ -26,7 +27,7 @@
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[RBRootViewController alloc] init]];
     
     [[UINavigationBar appearance] setBarStyle:UIBarStyleDefault];
-    [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setBarTintColor:rgb(246, 249, 250)];
     [[UINavigationBar appearance] setTranslucent:NO];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]}];
     
