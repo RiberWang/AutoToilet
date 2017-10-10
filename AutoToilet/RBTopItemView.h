@@ -10,6 +10,8 @@
 
 @interface RBTopItemView : UIView
 
+@property (nonatomic, assign) BOOL isHaveRightLine;
+
 - (instancetype)initWithFrame:(CGRect)frame andTitle:(NSString *)title;
 
 @end

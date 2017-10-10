@@ -8,10 +8,13 @@
 
 #import "RBRootViewController.h"
 #import "Masonry.h"
+#import "RBTopItemView.h"
+#import "PrefixHeader.h"
 
 @interface RBRootViewController ()
 
 @property (nonatomic, strong) UIScrollView *bgScrollView;
+@property (nonatomic, strong) RBTopItemView *waterView;
 
 
 @end
@@ -43,7 +46,8 @@
 }
 
 - (void)createUI {
-    
+    self.waterView = [[RBTopItemView alloc] initWithFrame:CGRectMake(0, 0, kSCREENW/4, kHeight(280)) andTitle:@"水温"];
+    [self.bgScrollView addSubview:self.waterView];
 }
 
 
