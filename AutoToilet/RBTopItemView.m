@@ -106,7 +106,8 @@
     }];
     
     self.increaseButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.increaseButton setImage:RBImageNamed(@"increaseimage") forState:UIControlStateNormal];
+    [self.increaseButton setImage:RBImageNamed(@"increaseup_n") forState:UIControlStateNormal];
+    [self.increaseButton setImage:RBImageNamed(@"increaseup_s") forState:UIControlStateSelected];
     [self.increaseButton addTarget:self action:@selector(increaseButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.buttonBgImageView addSubview:self.increaseButton];
     
@@ -117,7 +118,8 @@
     }];
     
     self.reduceButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.reduceButton setImage:RBImageNamed(@"reduceimage") forState:UIControlStateNormal];
+    [self.reduceButton setImage:RBImageNamed(@"reducedown_n") forState:UIControlStateNormal];
+    [self.reduceButton setImage:RBImageNamed(@"reducedown_s") forState:UIControlStateSelected];
     [self.reduceButton addTarget:self action:@selector(reduceButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.buttonBgImageView addSubview:self.reduceButton];
     
@@ -158,11 +160,16 @@
 }
 
 - (void)increaseButtonClick:(UIButton *)increaseButton {
+    self.increaseButton.selected = YES;
+    self.reduceButton.selected = NO;
     
+    self.rankLabel.text = [NSString stringWithFormat:@"%.0f°C", self.temperature + self.step];
 }
 
 - (void)reduceButtonClick:(UIButton *)reduceButton {
-    
+    self.reduceButton.selected = YES;
+    self.increaseButton.selected = NO;
+
 }
 
 - (void)setLabel:(UILabel *)factoryLabel andTextAlignment:(NSTextAlignment)textAlignment andTextColor:(UIColor *)color fontOfSystemSize:(CGFloat)fontSize {

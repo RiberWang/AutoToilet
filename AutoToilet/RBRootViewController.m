@@ -11,6 +11,7 @@
 #import "RBTopItemView.h"
 #import "PrefixHeader.h"
 #import "UIView+Extension.h"
+#import "RBMiddleItemView.h"
 
 @interface RBRootViewController ()
 
@@ -22,6 +23,9 @@
 @property (nonatomic, strong) UIView *topLineView;
 
 @property (nonatomic, strong) UIView *middleView;
+@property (nonatomic, strong) RBMiddleItemView *rankItemView;
+@property (nonatomic, strong) UIImageView *rankImageView;
+@property (nonatomic, assign) NSInteger rank;
 
 @property (nonatomic, strong) UIImageView *bottomBgImageView;
 
@@ -35,7 +39,7 @@
         _bgScrollView = [[UIScrollView alloc] init];
         _bgScrollView.showsVerticalScrollIndicator = NO;
         _bgScrollView.backgroundColor = [UIColor clearColor];
-        _bgScrollView.bounces = NO;
+//        _bgScrollView.bounces = NO;
         [self.view addSubview:_bgScrollView];
         
         [_bgScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -50,9 +54,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"遥控器";
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = rgb(246, 249, 250);
     
     [self createUI];
+    self.rank = 1;
 }
 
 - (void)createUI {
@@ -79,6 +84,39 @@
     self.middleView.backgroundColor = rgb(246, 249, 250);
     [self.bgScrollView addSubview:self.middleView];
     
+    self.rankItemView = [[RBMiddleItemView alloc] initWithFrame:CGRectMake(kWidth(10), kHeight(105 - 67)/2, kWidth(152), kHeight(67))];
+    [self.middleView addSubview:self.rankItemView];
+    
+    RBWeakSelf;
+    self.rankItemView.increaseBlcok = ^() {
+        if (weakSelf.rank < 5) {
+            weakSelf.rank++;
+        }
+        else
+        {
+            weakSelf.rank = 5;
+        }
+        NSString *imageName = [NSString stringWithFormat:@"middlerank%ld", weakSelf.rank];
+
+        weakSelf.rankImageView.image = RBImageNamed(imageName);
+    };
+    
+    self.rankItemView.reduceBlcok = ^() {
+        if (weakSelf.rank <= 1) {
+            weakSelf.rank = 1;
+        }
+        else
+        {
+            weakSelf.rank--;
+        }
+        NSString *imageName = [NSString stringWithFormat:@"middlerank%ld", weakSelf.rank];
+        
+        weakSelf.rankImageView.image = RBImageNamed(imageName);
+    };
+    
+    self.rankImageView = [[UIImageView alloc] initWithFrame:CGRectMake(kSCREENW - kWidth(193) - kWidth(12), kHeight(105 - 31)/2, kWidth(193), kHeight(31))];
+    self.rankImageView.image = RBImageNamed(@"middlerank1");
+    [self.middleView addSubview:self.rankImageView];
     
     self.bottomBgImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, height + kHeight(105), kSCREENW, kHeight(645))];
     self.bottomBgImageView.image = RBImageNamed(@"bottombgimage");

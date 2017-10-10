@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0738310B1F8D19C100D43668 /* RBMiddleItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0738310A1F8D19C100D43668 /* RBMiddleItemView.m */; };
 		07485BC11F8B991D000877A3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07485BC01F8B991D000877A3 /* main.m */; };
 		07485BC41F8B991D000877A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07485BC31F8B991D000877A3 /* AppDelegate.m */; };
 		07485BCA1F8B991D000877A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07485BC81F8B991D000877A3 /* Main.storyboard */; };
@@ -35,6 +36,8 @@
 		072399421F8C77240086EB07 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		072399431F8C77240086EB07 /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		072399441F8C77240086EB07 /* MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		073831091F8D19C100D43668 /* RBMiddleItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBMiddleItemView.h; sourceTree = "<group>"; };
+		0738310A1F8D19C100D43668 /* RBMiddleItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBMiddleItemView.m; sourceTree = "<group>"; };
 		07485BBC1F8B991D000877A3 /* AutoToilet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoToilet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07485BC01F8B991D000877A3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		07485BC21F8B991D000877A3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -134,6 +137,8 @@
 				07485BD71F8B9AD8000877A3 /* RBRootViewController.m */,
 				074EC78D1F8BA8EF00E8E1B7 /* RBTopItemView.h */,
 				074EC78E1F8BA8EF00E8E1B7 /* RBTopItemView.m */,
+				073831091F8D19C100D43668 /* RBMiddleItemView.h */,
+				0738310A1F8D19C100D43668 /* RBMiddleItemView.m */,
 				074EC7901F8BADEA00E8E1B7 /* PrefixHeader.h */,
 				07485BC81F8B991D000877A3 /* Main.storyboard */,
 				07485BCB1F8B991D000877A3 /* Assets.xcassets */,
@@ -281,6 +286,7 @@
 				074EC78F1F8BA8EF00E8E1B7 /* RBTopItemView.m in Sources */,
 				07485BF71F8BA5F4000877A3 /* MASConstraint.m in Sources */,
 				07485BF81F8BA5F4000877A3 /* MASConstraintMaker.m in Sources */,
+				0738310B1F8D19C100D43668 /* RBMiddleItemView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

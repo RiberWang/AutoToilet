@@ -20,5 +20,8 @@
 
 #define RBImageNamed(imageName) imageName?[UIImage imageNamed:(imageName)]:[UIImage imageNamed:@""]
 
+#define RBWeakObj(obj) @autoreleasepool{} __weak typeof(obj) weak##obj = obj;
+#define RBWeakSelf @autoreleasepool{} __weak typeof(self) weakSelf = self;
+
 
 #endif /* PrefixHeader_h */
