@@ -23,6 +23,9 @@
 
 @property (nonatomic, strong) UIView *rightLineView; /**< 右边的分割线 */
 
+@property (nonatomic, assign) CGFloat currentTemperature; /** 当前温度 */
+
+
 @end
 
 @implementation RBTopItemView
@@ -32,12 +35,18 @@
         self.backgroundColor = rgb(246, 249, 250);
         self.title = title;
         
-        self.isHaveRightLine = YES;
+        [self defaultValueSet];
         [self createUI];
         [self setContentOfView];
     }
     
     return self;
+}
+
+- (void)defaultValueSet {
+    self.isHaveRightLine = YES;
+    self.step = 20;
+    self.currentTemperature = self.temperature;
 }
 
 - (void)setIsHaveRightLine:(BOOL)isHaveRightLine {
@@ -53,24 +62,9 @@
 - (void)setTemperature:(CGFloat)temperature {
     _temperature = temperature;
     
+    self.currentTemperature = _temperature;
     
-    if (self.isRank) {
-        if (temperature > 0 && temperature < 30) {
-            self.rankLabel.text = [NSString stringWithFormat:@"1级"];
-        }
-        else if (temperature > 30 && temperature < 50)
-        {
-            self.rankLabel.text = [NSString stringWithFormat:@"2级"];
-        }
-        else
-        {
-            self.rankLabel.text = [NSString stringWithFormat:@"3 级"];
-        }
-    }
-    else
-    {
-        self.rankLabel.text = [NSString stringWithFormat:@"%.0f°C", temperature];
-    }
+    [self judgeIsRankAndSetValue];
 }
 
 - (void)createUI {
@@ -153,7 +147,6 @@
 }
 
 - (void)setContentOfView {
-    self.rankLabel.text = @"32°C";
     self.titleLabel.text = self.title;
     self.typeLabel.text = self.title;
 }
@@ -162,13 +155,63 @@
     self.increaseButton.selected = YES;
     self.reduceButton.selected = NO;
     
-    self.rankLabel.text = [NSString stringWithFormat:@"%.0f°C", self.temperature + self.step];
+    if (self.isRank) {
+        if (self.currentTemperature >= 60) {
+            self.currentTemperature = 60;
+        }
+        else
+        {
+            self.currentTemperature += self.step;
+        }
+    }
+    else
+    {
+        self.currentTemperature += self.step;
+    }
+    
+    [self judgeIsRankAndSetValue];
 }
 
 - (void)reduceButtonClick:(UIButton *)reduceButton {
     self.reduceButton.selected = YES;
     self.increaseButton.selected = NO;
 
+    if (self.currentTemperature <= 0) {
+        self.currentTemperature = 0;
+    }
+    else
+    {
+        self.currentTemperature -= self.step;
+    }
+
+    [self judgeIsRankAndSetValue];
+}
+
+// 判断是否是级别
+- (void)judgeIsRankAndSetValue {
+    if (self.isRank) {
+        if (self.currentTemperature >= 0 && self.currentTemperature <= 20) {
+            self.rankLabel.text = [NSString stringWithFormat:@"1 级"];
+        }
+        else if (self.currentTemperature > 20 && self.currentTemperature <= 40)
+        {
+            self.rankLabel.text = [NSString stringWithFormat:@"2 级"];
+        }
+        else
+        {
+            self.rankLabel.text = [NSString stringWithFormat:@"3 级"];
+        }
+    }
+    else
+    {
+        self.rankLabel.text = [NSString stringWithFormat:@"%.0f°C", self.currentTemperature];
+    }
+}
+
+
+- (void)setAllSelectedNo {
+    self.increaseButton.selected = NO;
+    self.reduceButton.selected = NO;
 }
 
 - (void)setLabel:(UILabel *)factoryLabel andTextAlignment:(NSTextAlignment)textAlignment andTextColor:(UIColor *)color fontOfSystemSize:(CGFloat)fontSize {
@@ -176,6 +219,5 @@
     factoryLabel.font = [UIFont systemFontOfSize:fontSize];
     factoryLabel.textAlignment = textAlignment;
 }
-
 
 @end

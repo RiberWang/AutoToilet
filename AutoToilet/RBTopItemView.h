@@ -20,4 +20,6 @@
 
 - (instancetype)initWithFrame:(CGRect)frame andTitle:(NSString *)title;
 
+- (void)setAllSelectedNo;
+
 @end

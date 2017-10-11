@@ -65,13 +65,13 @@
     self.waterView = [[RBTopItemView alloc] initWithFrame:CGRectMake(0, 0, width, height) andTitle:@"水温"];
     [self.bgScrollView addSubview:self.waterView];
     
-    self.pressureView = [[RBTopItemView alloc] initWithFrame:CGRectMake(kSCREENW/4, self.waterView.y, width, height) andTitle:@"水压"];
+    self.pressureView = [[RBTopItemView alloc] initWithFrame:CGRectMake(self.waterView.maxX, self.waterView.y, width, height) andTitle:@"水压"];
     [self.bgScrollView addSubview:self.pressureView];
 
-    self.winterView = [[RBTopItemView alloc] initWithFrame:CGRectMake(2*kSCREENW/4, self.waterView.y, width, height) andTitle:@"风温"];
+    self.winterView = [[RBTopItemView alloc] initWithFrame:CGRectMake(self.pressureView.maxX, self.waterView.y, width, height) andTitle:@"风温"];
     [self.bgScrollView addSubview:self.winterView];
 
-    self.sitView = [[RBTopItemView alloc] initWithFrame:CGRectMake(3*kSCREENW/4, self.waterView.y, width, height) andTitle:@"坐温"];
+    self.sitView = [[RBTopItemView alloc] initWithFrame:CGRectMake(self.winterView.maxX, self.waterView.y, width, height) andTitle:@"坐温"];
     self.sitView.isHaveRightLine = NO;
     [self.bgScrollView addSubview:self.sitView];
     
@@ -83,7 +83,7 @@
     self.middleView.backgroundColor = rgb(246, 249, 250);
     [self.bgScrollView addSubview:self.middleView];
     
-    self.rankItemView = [[RBMiddleItemView alloc] initWithFrame:CGRectMake(kWidth(10), kHeight(105 - 67)/2, kWidth(152), kHeight(67))];
+    self.rankItemView = [[RBMiddleItemView alloc] initWithFrame:CGRectMake(kWidth(10), (self.middleView.height - kHeight(67))/2, kWidth(152), kHeight(67))];
     [self.middleView addSubview:self.rankItemView];
     
     RBWeakSelf;
@@ -113,21 +113,21 @@
         weakSelf.rankImageView.image = RBImageNamed(imageName);
     };
     
-    self.rankImageView = [[UIImageView alloc] initWithFrame:CGRectMake(kSCREENW - kWidth(193) - kWidth(12), kHeight(105 - 31)/2, kWidth(193), kHeight(31))];
+    self.rankImageView = [[UIImageView alloc] initWithFrame:CGRectMake(kSCREENW - kWidth(193) - kWidth(12), (self.middleView.height - kHeight(31))/2, kWidth(193), kHeight(31))];
     self.rankImageView.image = RBImageNamed(@"middlerank1");
     [self.middleView addSubview:self.rankImageView];
     
-    self.bottomBgImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, height + kHeight(105), kSCREENW, kHeight(645))];
+    self.bottomBgImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.middleView.maxY, kSCREENW, kHeight(645))];
     self.bottomBgImageView.image = RBImageNamed(@"bottombgimage");
     [self.bgScrollView addSubview:self.bottomBgImageView];
     
-    self.bgScrollView.contentSize = CGSizeMake(0, height + kHeight(105) + kHeight(645));
+    self.bgScrollView.contentSize = CGSizeMake(0, self.middleView.maxY + self.bottomBgImageView.height);
     
     
     self.waterView.temperature = 32;
-    self.winterView.temperature = 30;
     self.pressureView.isRank = YES;
-    self.pressureView.temperature = 100;
+    self.pressureView.temperature = 20;
+    self.winterView.temperature = 30;
     self.sitView.temperature = 28;
 
 }
