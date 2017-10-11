@@ -161,8 +161,8 @@
     self.reduceButton.selected = NO;
     
     if (self.isRank) {
-        if (self.currentTemperature >= 3) {
-            self.currentTemperature = 3;
+        if (self.currentTemperature >= 3*DefaultStep) {
+            self.currentTemperature = 3*DefaultStep;
         }
         else
         {
