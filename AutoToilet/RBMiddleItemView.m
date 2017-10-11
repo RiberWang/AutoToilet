@@ -58,10 +58,23 @@
     
     [self.increaseButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.equalTo(self.buttonBgImageView).with.offset(0);
-        make.right.right.equalTo(self.buttonBgImageView).with.offset(0);
+        make.right.equalTo(self.buttonBgImageView).with.offset(0);
         make.width.mas_equalTo(kWidth(50));
     }];
 
+    self.titleLabel = [[UILabel alloc] init];
+    self.titleLabel.textColor = rgb(84, 92, 103);
+    self.titleLabel.font = [UIFont systemFontOfSize:kWidth(16)];
+    self.titleLabel.textAlignment = NSTextAlignmentCenter;
+    [self.buttonBgImageView addSubview:self.titleLabel];
+    
+    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.reduceButton.mas_right).with.offset(0);
+        make.right.equalTo(self.increaseButton.mas_left).with.offset(0);
+        make.top.bottom.equalTo(self.buttonBgImageView).with.offset(0);
+    }];
+    
+    self.titleLabel.text = @"管位";
 }
 
 - (void)increaseButtonClick:(UIButton *)increaseButton {
@@ -89,6 +102,5 @@
         NSLog(@"Block is not exist!");
     }
 }
-
 
 @end
