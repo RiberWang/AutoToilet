@@ -9,7 +9,7 @@
 #import "RBTopItemView.h"
 #import "PrefixHeader.h"
 
-
+#define DefaultStep 1
 
 @interface RBTopItemView ()
 
@@ -45,8 +45,13 @@
 
 - (void)defaultValueSet {
     self.isHaveRightLine = YES;
-    self.step = 20;
+    self.step = DefaultStep;
+
     self.currentTemperature = self.temperature;
+    
+//    if (self.temperature%self.step != 0) {
+//        self.step = 1;
+//    }
 }
 
 - (void)setIsHaveRightLine:(BOOL)isHaveRightLine {
@@ -59,7 +64,7 @@
     _isRank = isRank;
 }
 
-- (void)setTemperature:(CGFloat)temperature {
+- (void)setTemperature:(NSInteger)temperature {
     _temperature = temperature;
     
     self.currentTemperature = _temperature;
@@ -156,8 +161,8 @@
     self.reduceButton.selected = NO;
     
     if (self.isRank) {
-        if (self.currentTemperature >= 60) {
-            self.currentTemperature = 60;
+        if (self.currentTemperature >= 3) {
+            self.currentTemperature = 3;
         }
         else
         {
@@ -190,10 +195,10 @@
 // 判断是否是级别
 - (void)judgeIsRankAndSetValue {
     if (self.isRank) {
-        if (self.currentTemperature >= 0 && self.currentTemperature <= 20) {
+        if (self.currentTemperature >= 0 && self.currentTemperature <= DefaultStep) {
             self.rankLabel.text = [NSString stringWithFormat:@"1 级"];
         }
-        else if (self.currentTemperature > 20 && self.currentTemperature <= 40)
+        else if (self.currentTemperature > DefaultStep && self.currentTemperature <= 2*DefaultStep)
         {
             self.rankLabel.text = [NSString stringWithFormat:@"2 级"];
         }

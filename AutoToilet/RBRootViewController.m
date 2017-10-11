@@ -126,7 +126,7 @@
     
     self.waterView.temperature = 32;
     self.pressureView.isRank = YES;
-    self.pressureView.temperature = 20;
+    self.pressureView.temperature = 1;
     self.winterView.temperature = 30;
     self.sitView.temperature = 28;
 
