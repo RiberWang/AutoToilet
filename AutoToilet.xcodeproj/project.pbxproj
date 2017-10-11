@@ -26,11 +26,10 @@
 		07485BFE1F8BA5F4000877A3 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 07485BF11F8BA5F4000877A3 /* View+MASAdditions.m */; };
 		07485BFF1F8BA5F4000877A3 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 07485BF41F8BA5F4000877A3 /* ViewController+MASAdditions.m */; };
 		074EC78F1F8BA8EF00E8E1B7 /* RBTopItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 074EC78E1F8BA8EF00E8E1B7 /* RBTopItemView.m */; };
+		0759E72F1F8DC3D4002C7BDC /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0759E72E1F8DC3D4002C7BDC /* UIView+Extension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0723993D1F8C77100086EB07 /* UIView+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
-		0723993E1F8C77100086EB07 /* UIView+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		072399401F8C77240086EB07 /* MBProgressHUD+NJ.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+NJ.h"; sourceTree = "<group>"; };
 		072399411F8C77240086EB07 /* MBProgressHUD+NJ.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+NJ.m"; sourceTree = "<group>"; };
 		072399421F8C77240086EB07 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
@@ -77,6 +76,8 @@
 		074EC78D1F8BA8EF00E8E1B7 /* RBTopItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBTopItemView.h; sourceTree = "<group>"; };
 		074EC78E1F8BA8EF00E8E1B7 /* RBTopItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBTopItemView.m; sourceTree = "<group>"; };
 		074EC7901F8BADEA00E8E1B7 /* PrefixHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.h; sourceTree = "<group>"; };
+		0759E72D1F8DC3D4002C7BDC /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		0759E72E1F8DC3D4002C7BDC /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,15 +91,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0723993C1F8C77100086EB07 /* UIView+Extension */ = {
-			isa = PBXGroup;
-			children = (
-				0723993D1F8C77100086EB07 /* UIView+Extension.h */,
-				0723993E1F8C77100086EB07 /* UIView+Extension.m */,
-			);
-			path = "UIView+Extension";
-			sourceTree = "<group>";
-		};
 		0723993F1F8C77240086EB07 /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,8 +152,8 @@
 		07485BD91F8BA5F4000877A3 /* ThirdLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				0759E72C1F8DC3D4002C7BDC /* UIView+Extension */,
 				0723993F1F8C77240086EB07 /* MBProgressHUD */,
-				0723993C1F8C77100086EB07 /* UIView+Extension */,
 				07485BDA1F8BA5F4000877A3 /* Masonry */,
 			);
 			path = ThirdLibrary;
@@ -198,6 +190,15 @@
 				07485BF41F8BA5F4000877A3 /* ViewController+MASAdditions.m */,
 			);
 			path = Masonry;
+			sourceTree = "<group>";
+		};
+		0759E72C1F8DC3D4002C7BDC /* UIView+Extension */ = {
+			isa = PBXGroup;
+			children = (
+				0759E72D1F8DC3D4002C7BDC /* UIView+Extension.h */,
+				0759E72E1F8DC3D4002C7BDC /* UIView+Extension.m */,
+			);
+			path = "UIView+Extension";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,6 +288,7 @@
 				074EC78F1F8BA8EF00E8E1B7 /* RBTopItemView.m in Sources */,
 				07485BF71F8BA5F4000877A3 /* MASConstraint.m in Sources */,
 				07485BF81F8BA5F4000877A3 /* MASConstraintMaker.m in Sources */,
+				0759E72F1F8DC3D4002C7BDC /* UIView+Extension.m in Sources */,
 				0738310B1F8D19C100D43668 /* RBMiddleItemView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,10 +7,9 @@
 //
 
 #import "RBRootViewController.h"
-#import "Masonry.h"
 #import "RBTopItemView.h"
 #import "PrefixHeader.h"
-#import "UIView+Extension.h"
+
 #import "RBMiddleItemView.h"
 
 @interface RBRootViewController ()
@@ -66,13 +65,13 @@
     self.waterView = [[RBTopItemView alloc] initWithFrame:CGRectMake(0, 0, width, height) andTitle:@"水温"];
     [self.bgScrollView addSubview:self.waterView];
     
-    self.pressureView = [[RBTopItemView alloc] initWithFrame:CGRectMake(kSCREENW/4, 0, width, height) andTitle:@"水压"];
+    self.pressureView = [[RBTopItemView alloc] initWithFrame:CGRectMake(kSCREENW/4, self.waterView.y, width, height) andTitle:@"水压"];
     [self.bgScrollView addSubview:self.pressureView];
 
-    self.winterView = [[RBTopItemView alloc] initWithFrame:CGRectMake(2*kSCREENW/4, 0, width, height) andTitle:@"风温"];
+    self.winterView = [[RBTopItemView alloc] initWithFrame:CGRectMake(2*kSCREENW/4, self.waterView.y, width, height) andTitle:@"风温"];
     [self.bgScrollView addSubview:self.winterView];
 
-    self.sitView = [[RBTopItemView alloc] initWithFrame:CGRectMake(3*kSCREENW/4, 0, width, height) andTitle:@"坐温"];
+    self.sitView = [[RBTopItemView alloc] initWithFrame:CGRectMake(3*kSCREENW/4, self.waterView.y, width, height) andTitle:@"坐温"];
     self.sitView.isHaveRightLine = NO;
     [self.bgScrollView addSubview:self.sitView];
     
