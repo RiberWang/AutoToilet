@@ -27,6 +27,7 @@
 		07485BFF1F8BA5F4000877A3 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 07485BF41F8BA5F4000877A3 /* ViewController+MASAdditions.m */; };
 		074EC78F1F8BA8EF00E8E1B7 /* RBTopItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 074EC78E1F8BA8EF00E8E1B7 /* RBTopItemView.m */; };
 		0759E72F1F8DC3D4002C7BDC /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0759E72E1F8DC3D4002C7BDC /* UIView+Extension.m */; };
+		076AD6471F8FD0B9001C66E9 /* RBBottomItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 076AD6461F8FD0B9001C66E9 /* RBBottomItemView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,8 @@
 		074EC7901F8BADEA00E8E1B7 /* PrefixHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.h; sourceTree = "<group>"; };
 		0759E72D1F8DC3D4002C7BDC /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		0759E72E1F8DC3D4002C7BDC /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		076AD6451F8FD0B9001C66E9 /* RBBottomItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBBottomItemView.h; sourceTree = "<group>"; };
+		076AD6461F8FD0B9001C66E9 /* RBBottomItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBBottomItemView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +134,8 @@
 				074EC78E1F8BA8EF00E8E1B7 /* RBTopItemView.m */,
 				073831091F8D19C100D43668 /* RBMiddleItemView.h */,
 				0738310A1F8D19C100D43668 /* RBMiddleItemView.m */,
+				076AD6451F8FD0B9001C66E9 /* RBBottomItemView.h */,
+				076AD6461F8FD0B9001C66E9 /* RBBottomItemView.m */,
 				074EC7901F8BADEA00E8E1B7 /* PrefixHeader.h */,
 				07485BC81F8B991D000877A3 /* Main.storyboard */,
 				07485BCB1F8B991D000877A3 /* Assets.xcassets */,
@@ -279,6 +284,7 @@
 				07485BF61F8BA5F4000877A3 /* MASCompositeConstraint.m in Sources */,
 				07485BFC1F8BA5F4000877A3 /* NSArray+MASAdditions.m in Sources */,
 				07485BD81F8B9AD8000877A3 /* RBRootViewController.m in Sources */,
+				076AD6471F8FD0B9001C66E9 /* RBBottomItemView.m in Sources */,
 				07485BC41F8B991D000877A3 /* AppDelegate.m in Sources */,
 				07485BF91F8BA5F4000877A3 /* MASLayoutConstraint.m in Sources */,
 				07485BC11F8B991D000877A3 /* main.m in Sources */,

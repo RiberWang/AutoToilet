@@ -7,10 +7,11 @@
 //
 
 #import "RBRootViewController.h"
-#import "RBTopItemView.h"
 #import "PrefixHeader.h"
 
+#import "RBTopItemView.h"
 #import "RBMiddleItemView.h"
+#import "RBBottomItemView.h"
 
 @interface RBRootViewController ()
 
@@ -27,6 +28,8 @@
 @property (nonatomic, assign) NSInteger rank;
 
 @property (nonatomic, strong) UIImageView *bottomBgImageView;
+@property (nonatomic, strong) RBBottomItemView *tbQingXiView;
+@property (nonatomic, strong) RBBottomItemView *nxZhuanYongView;
 
 
 @end
@@ -55,11 +58,27 @@
     self.navigationItem.title = @"遥控器";
     self.view.backgroundColor = rgb(246, 249, 250);
     
-    [self createUI];
     self.rank = 1;
+
+    [self createUI];
+    [self setContentOfData];
 }
 
 - (void)createUI {
+    [self createTopView];
+    [self createMiddleView];
+    [self createBottomView];
+}
+
+- (void)setContentOfData {
+    self.waterView.temperature = 32;
+    self.pressureView.isRank = YES;
+    self.pressureView.temperature = 1;
+    self.winterView.temperature = 30;
+    self.sitView.temperature = 28;
+}
+
+- (void)createTopView {
     CGFloat width = kSCREENW/4;
     CGFloat height = kHeight(280);
     self.waterView = [[RBTopItemView alloc] initWithFrame:CGRectMake(0, 0, width, height) andTitle:@"水温"];
@@ -67,10 +86,10 @@
     
     self.pressureView = [[RBTopItemView alloc] initWithFrame:CGRectMake(self.waterView.maxX, self.waterView.y, width, height) andTitle:@"水压"];
     [self.bgScrollView addSubview:self.pressureView];
-
+    
     self.winterView = [[RBTopItemView alloc] initWithFrame:CGRectMake(self.pressureView.maxX, self.waterView.y, width, height) andTitle:@"风温"];
     [self.bgScrollView addSubview:self.winterView];
-
+    
     self.sitView = [[RBTopItemView alloc] initWithFrame:CGRectMake(self.winterView.maxX, self.waterView.y, width, height) andTitle:@"坐温"];
     self.sitView.isHaveRightLine = NO;
     [self.bgScrollView addSubview:self.sitView];
@@ -78,8 +97,10 @@
     self.topLineView = [[UIView alloc] initWithFrame:CGRectMake(kWidth(10), height - 0.5, kSCREENW - 2*kWidth(10), 0.5)];
     self.topLineView.backgroundColor = RBLineColor;
     [self.bgScrollView addSubview:self.topLineView];
-    
-    self.middleView = [[UIView alloc] initWithFrame:CGRectMake(0, height, kSCREENW, kHeight(105))];
+}
+
+- (void)createMiddleView {
+    self.middleView = [[UIView alloc] initWithFrame:CGRectMake(0, self.waterView.maxY, kSCREENW, kHeight(105))];
     self.middleView.backgroundColor = rgb(246, 249, 250);
     [self.bgScrollView addSubview:self.middleView];
     
@@ -96,7 +117,7 @@
             weakSelf.rank = 5;
         }
         NSString *imageName = [NSString stringWithFormat:@"middlerank%ld", weakSelf.rank];
-
+        
         weakSelf.rankImageView.image = RBImageNamed(imageName);
     };
     
@@ -116,20 +137,31 @@
     self.rankImageView = [[UIImageView alloc] initWithFrame:CGRectMake(kSCREENW - kWidth(193) - kWidth(12), (self.middleView.height - kHeight(31))/2, kWidth(193), kHeight(31))];
     self.rankImageView.image = RBImageNamed(@"middlerank1");
     [self.middleView addSubview:self.rankImageView];
+}
+
+- (void)createBottomView {
+    CGFloat margin = (kSCREENW - 4*kWidth(89))/5;
     
     self.bottomBgImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.middleView.maxY, kSCREENW, kHeight(645))];
     self.bottomBgImageView.image = RBImageNamed(@"bottombgimage");
+    self.bottomBgImageView.userInteractionEnabled = YES;
     [self.bgScrollView addSubview:self.bottomBgImageView];
     
     self.bgScrollView.contentSize = CGSizeMake(0, self.middleView.maxY + self.bottomBgImageView.height);
     
+    // 布局子视图
+    CGFloat itemWidth = kWidth(89);
+    CGFloat itemHeight = kHeight(150);
+    self.tbQingXiView = [[RBBottomItemView alloc] initWithFrame:CGRectMake(margin, 0, itemWidth, itemHeight) andItemImageName:@"at_tbqingxi" itemTitle:@"臀部清洗"];
+    self.tbQingXiView.tag = 0;
+    [self.bottomBgImageView addSubview:self.tbQingXiView];
     
-    self.waterView.temperature = 32;
-    self.pressureView.isRank = YES;
-    self.pressureView.temperature = 1;
-    self.winterView.temperature = 30;
-    self.sitView.temperature = 28;
+    self.nxZhuanYongView= [[RBBottomItemView alloc] initWithFrame:CGRectMake(self.tbQingXiView.maxX + margin, self.tbQingXiView.y, itemWidth, itemHeight) andItemImageName:@"at_nvzhuanyong" itemTitle:@"女性专用"];
+    self.nxZhuanYongView.tag = 1;
+    [self.bottomBgImageView addSubview:self.nxZhuanYongView];
 
+    
+    
 }
 
 
