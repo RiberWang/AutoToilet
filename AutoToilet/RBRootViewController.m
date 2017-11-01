@@ -28,8 +28,22 @@
 @property (nonatomic, assign) NSInteger rank;
 
 @property (nonatomic, strong) UIImageView *bottomBgImageView;
-@property (nonatomic, strong) RBBottomItemView *tbQingXiView;
-@property (nonatomic, strong) RBBottomItemView *nxZhuanYongView;
+@property (nonatomic, strong) RBBottomItemView *buttocksCleanseView; /** 臀部清洗 */
+@property (nonatomic, strong) RBBottomItemView *femaleView; /**< 女士专用 */
+@property (nonatomic, strong) RBBottomItemView *massageView; /**< 按摩 */
+@property (nonatomic, strong) RBBottomItemView *stopView; /**< 停止 */
+@property (nonatomic, strong) RBBottomItemView *washView; /**< 冲水 */
+@property (nonatomic, strong) RBBottomItemView *dryView; /**< 烘干 */
+@property (nonatomic, strong) RBBottomItemView *energysavingView; /**< 节能 */
+@property (nonatomic, strong) RBBottomItemView *nightLightView; /**< 夜灯 */
+@property (nonatomic, strong) RBBottomItemView *flipToiletView; /** 翻盖马桶 */
+@property (nonatomic, strong) RBBottomItemView *turnCircleView; /** 翻圈马桶 */
+@property (nonatomic, strong) RBBottomItemView *deodorizeView; /** 除臭 */
+@property (nonatomic, strong) RBBottomItemView *sitRespondView; /** 着坐感应 */
+@property (nonatomic, strong) RBBottomItemView *nozzleWashView; /** 喷口清洗 */
+@property (nonatomic, strong) RBBottomItemView * sterilizeView; /** 紫外杀菌 */
+@property (nonatomic, strong) RBBottomItemView *childrenWashView; /** 童洗 */
+@property (nonatomic, strong) RBBottomItemView * defaecateView; /** 通便 */
 
 
 @end
@@ -152,13 +166,13 @@
     // 布局子视图
     CGFloat itemWidth = kWidth(89);
     CGFloat itemHeight = kHeight(150);
-    self.tbQingXiView = [[RBBottomItemView alloc] initWithFrame:CGRectMake(margin, 0, itemWidth, itemHeight) andItemImageName:@"at_tbqingxi" itemTitle:@"臀部清洗"];
-    self.tbQingXiView.tag = 0;
-    [self.bottomBgImageView addSubview:self.tbQingXiView];
+    self.buttocksCleanseView = [[RBBottomItemView alloc] initWithFrame:CGRectMake(margin, 0, itemWidth, itemHeight) andItemImageName:@"at_tbqingxi" itemTitle:@"臀部清洗"];
+    self.buttocksCleanseView.tag = 0;
+    [self.bottomBgImageView addSubview:self.buttocksCleanseView];
     
-    self.nxZhuanYongView= [[RBBottomItemView alloc] initWithFrame:CGRectMake(self.tbQingXiView.maxX + margin, self.tbQingXiView.y, itemWidth, itemHeight) andItemImageName:@"at_nvzhuanyong" itemTitle:@"女性专用"];
-    self.nxZhuanYongView.tag = 1;
-    [self.bottomBgImageView addSubview:self.nxZhuanYongView];
+    self.femaleView = [[RBBottomItemView alloc] initWithFrame:CGRectMake(self.buttocksCleanseView.maxX + margin, self.buttocksCleanseView.y, itemWidth, itemHeight) andItemImageName:@"at_nvzhuanyong" itemTitle:@"女性专用"];
+    self.femaleView.tag = 1;
+    [self.bottomBgImageView addSubview:self.femaleView];
 
     
     
