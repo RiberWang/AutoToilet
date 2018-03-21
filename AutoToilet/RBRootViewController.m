@@ -30,6 +30,9 @@
 @property (nonatomic, strong) UIImageView *bottomBgImageView;
 @property (nonatomic, strong) RBBottomItemView *tbQingXiView;
 @property (nonatomic, strong) RBBottomItemView *nxZhuanYongView;
+@property (nonatomic, strong) RBBottomItemView *anmoView;
+@property (nonatomic, strong) RBBottomItemView *stopView;
+
 
 
 @end
@@ -156,12 +159,17 @@
     self.tbQingXiView.tag = 0;
     [self.bottomBgImageView addSubview:self.tbQingXiView];
     
-    self.nxZhuanYongView= [[RBBottomItemView alloc] initWithFrame:CGRectMake(self.tbQingXiView.maxX + margin, self.tbQingXiView.y, itemWidth, itemHeight) andItemImageName:@"at_nvzhuanyong" itemTitle:@"女性专用"];
+    self.nxZhuanYongView = [[RBBottomItemView alloc] initWithFrame:CGRectMake(self.tbQingXiView.maxX + margin, self.tbQingXiView.y, itemWidth, itemHeight) andItemImageName:@"at_nvzhuanyong" itemTitle:@"女性专用"];
     self.nxZhuanYongView.tag = 1;
     [self.bottomBgImageView addSubview:self.nxZhuanYongView];
 
-    
-    
+    self.anmoView = [[RBBottomItemView alloc] initWithFrame:CGRectMake(self.nxZhuanYongView.maxX + margin, self.tbQingXiView.y, itemWidth, itemHeight) andItemImageName:@"at_anmo" itemTitle:@"按摩"];
+    self.anmoView.tag = 2;
+    [self.bottomBgImageView addSubview:self.anmoView];
+
+    self.stopView = [[RBBottomItemView alloc] initWithFrame:CGRectMake(self.anmoView.maxX + margin, self.tbQingXiView.y, itemWidth, itemHeight) andItemImageName:@"at_stop" itemTitle:@"停止"];
+    self.stopView.tag = 3;
+    [self.bottomBgImageView addSubview:self.stopView];
 }
 
 
